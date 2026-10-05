@@ -1,0 +1,5 @@
+Model,MAE,RMSE,R2,Training Time (s),Selected Best
+Linear Regression,13.7278,16.9888,0.8333,0.235,True
+Random Forest,13.235,18.9046,0.7936,57.247,False
+XGBoost,12.9196,18.3145,0.8063,5.056,False
+LSTM,13.3691,18.1033,0.8127,136.169,False

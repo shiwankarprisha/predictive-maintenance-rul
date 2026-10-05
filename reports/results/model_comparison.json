@@ -1,0 +1,59 @@
+{
+    "models": [
+        {
+            "Model": "Linear Regression",
+            "MAE": 13.7278,
+            "RMSE": 16.9888,
+            "R2": 0.8333,
+            "Training Time (s)": 0.235,
+            "Selected Best": true
+        },
+        {
+            "Model": "Random Forest",
+            "MAE": 13.235,
+            "RMSE": 18.9046,
+            "R2": 0.7936,
+            "Training Time (s)": 57.247,
+            "Selected Best": false
+        },
+        {
+            "Model": "XGBoost",
+            "MAE": 12.9196,
+            "RMSE": 18.3145,
+            "R2": 0.8063,
+            "Training Time (s)": 5.056,
+            "Selected Best": false
+        },
+        {
+            "Model": "LSTM",
+            "MAE": 13.3691,
+            "RMSE": 18.1033,
+            "R2": 0.8127,
+            "Training Time (s)": 136.169,
+            "Selected Best": false
+        }
+    ],
+    "best_model": "Linear Regression",
+    "val_metrics": {
+        "Linear Regression": {
+            "mae": 12.9158,
+            "rmse": 16.3416,
+            "r2": 0.8456
+        },
+        "Random Forest": {
+            "mae": 11.6428,
+            "rmse": 17.2774,
+            "r2": 0.8274
+        },
+        "XGBoost": {
+            "mae": 11.4182,
+            "rmse": 16.6226,
+            "r2": 0.8402
+        },
+        "LSTM": {
+            "mae": 12.7838,
+            "rmse": 17.0517,
+            "r2": 0.8338
+        }
+    }
+}
