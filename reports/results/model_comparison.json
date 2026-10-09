@@ -5,35 +5,35 @@
             "MAE": 13.7278,
             "RMSE": 16.9888,
             "R2": 0.8333,
-            "Training Time (s)": 0.235,
-            "Selected Best": true
+            "Training Time (s)": 0.19,
+            "Selected Best": false
         },
         {
             "Model": "Random Forest",
-            "MAE": 13.235,
-            "RMSE": 18.9046,
-            "R2": 0.7936,
-            "Training Time (s)": 57.247,
+            "MAE": 13.1967,
+            "RMSE": 18.7672,
+            "R2": 0.7966,
+            "Training Time (s)": 30.414,
             "Selected Best": false
         },
         {
             "Model": "XGBoost",
-            "MAE": 12.9196,
-            "RMSE": 18.3145,
-            "R2": 0.8063,
-            "Training Time (s)": 5.056,
+            "MAE": 12.6367,
+            "RMSE": 17.8237,
+            "R2": 0.8166,
+            "Training Time (s)": 4.275,
             "Selected Best": false
         },
         {
             "Model": "LSTM",
-            "MAE": 13.3691,
-            "RMSE": 18.1033,
-            "R2": 0.8127,
-            "Training Time (s)": 136.169,
-            "Selected Best": false
+            "MAE": 12.1121,
+            "RMSE": 16.8294,
+            "R2": 0.8381,
+            "Training Time (s)": 124.032,
+            "Selected Best": true
         }
     ],
-    "best_model": "Linear Regression",
+    "best_model": "LSTM",
     "val_metrics": {
         "Linear Regression": {
             "mae": 12.9158,
@@ -41,19 +41,19 @@
             "r2": 0.8456
         },
         "Random Forest": {
-            "mae": 11.6428,
-            "rmse": 17.2774,
-            "r2": 0.8274
+            "mae": 11.4175,
+            "rmse": 16.906,
+            "r2": 0.8347
         },
         "XGBoost": {
-            "mae": 11.4182,
-            "rmse": 16.6226,
-            "r2": 0.8402
+            "mae": 11.3691,
+            "rmse": 16.5377,
+            "r2": 0.8418
         },
         "LSTM": {
-            "mae": 12.7838,
-            "rmse": 17.0517,
-            "r2": 0.8338
+            "mae": 10.8772,
+            "rmse": 14.7481,
+            "r2": 0.8757
         }
     }
 }
