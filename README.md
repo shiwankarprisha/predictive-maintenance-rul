@@ -231,4 +231,4 @@ docker-compose up --build
 
 - Divya Tiwari - A3-B4-68
 - Prisha Shiwankar - A3-B4-52
-- Bhoomika Khilnani - A3-B4-38
+- Bhoomika Khilnani - A3-B3-38
