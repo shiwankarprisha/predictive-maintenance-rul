@@ -17,6 +17,12 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
 # Page setup for responsive cross-platform layout
 st.set_page_config(
@@ -205,7 +211,7 @@ with st.sidebar:
     )
     
     st.divider()
-    st.caption("B.Tech ML Lab Project Demonstration")
+    st.caption("ML Lab Project Demo")
     st.caption("Dataset: NASA C-MAPSS Turbofan (FD001)")
 
 
@@ -479,7 +485,7 @@ elif page == "📖 About Project & Literature":
     st.markdown('<div class="main-header">About the Project & Research Foundations</div>', unsafe_allow_html=True)
     st.markdown('<div class="sub-header">AI-Based Predictive Maintenance and Remaining Useful Life Estimation Using Machine Learning</div>', unsafe_allow_html=True)
     
-    tab1, tab2, tab3, tab4 = st.tabs(["🏛️ Architecture & Methodology", "📚 Literature Review (2022–2026)", "🛡️ Data Leakage Prevention", "👨‍💻 Project Governance"])
+    tab1, tab2, tab3, tab4 = st.tabs(["🏛️ Architecture & Methodology", "📚 Literature Review (2022–2026)", "🛡️ Data Leakage Prevention Strategy", "👨‍💻 Project Governance"])
     
     with tab1:
         st.markdown("""
@@ -525,10 +531,36 @@ elif page == "📖 About Project & Literature":
         
     with tab3:
         st.markdown("""
-        ### Why Engine-Wise Splitting is Mandatory (Viva Defense)
-        > **Examiner Question:** "Why can't we use a standard random `train_test_split(df, test_size=0.2)` on this dataset?"
-        > 
-        > **Viva Answer:** "Because each engine generates a continuous temporal degradation trajectory over successive cycles. A random row-wise split would randomly assign Cycle 50 of Engine 1 to the test set while placing Cycle 49 and Cycle 51 into the training set. This creates catastrophic **temporal data leakage**—the model simply memorizes the engine's trajectory rather than learning generalized physical degradation dynamics. By enforcing an **engine-wise split**, the sets are mutually exclusive by engine identity, guaranteeing authentic prognostic generalization."
+        ### Introduction
+
+        Data leakage occurs when information from the validation or test data influences model training or evaluation. In time-series predictive maintenance, mixing cycles from the same engine across different data splits can also lead to overly optimistic performance estimates.
+
+        Our project uses the following strategies to reduce these risks.
+
+        ### Prevention Strategies
+
+        **🔹 Engine-Wise Data Splitting**
+
+        - Training: 70% of engines
+        - Validation: 15% of engines
+        - Testing: 15% of engines
+        - Each engine is assigned to only one split, preventing the same engine's degradation trajectory from appearing in multiple sets.
+
+        **🔹 Training-Only Feature Scaling**
+
+        The scaler is fitted using the training data only. The learned scaling parameters are then applied to the validation and test sets without fitting the scaler again.
+
+        **🔹 Temporal Feature Engineering**
+
+        Rolling statistics and rate-of-change features are constructed from historical sensor readings. This helps avoid introducing future information into earlier prediction points.
+
+        **🔹 Validation-Based Model Selection**
+
+        Validation performance is used to select the best-performing model. The held-out test set is reserved for final evaluation.
+
+        ### Key Takeaway
+
+        **Our objective:** Evaluate how well the trained models generalize to previously unseen engines while minimizing information leakage between training, validation, and test data.
         """)
         
     with tab4:
